@@ -9,6 +9,8 @@ if (isset($_POST['register-btn'])) {
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
+$salt = "2626236266AsashÄASASAS";
+$password = md5($password.$salt);
 
 $sql = ("SELECT * from users WHERE email=:email_IN");
 $stm = $pdo->prepare($sql);
