@@ -1,4 +1,9 @@
-<?php include("dbconnection.php");
+
+
+<?php 
+
+
+include("app/database/dbconnection.php");
 
 if (isset($_POST['register-btn'])) {
 $name = $_POST['name'];
