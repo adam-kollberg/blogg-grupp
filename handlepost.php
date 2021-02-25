@@ -9,7 +9,7 @@ echo " New post";
 
     if (isset($_POST['add-post'])) {
 
- 
+  
          $title = $_POST['title'];
         //$url = $_POST['image'];
          $body = $_POST['body'];

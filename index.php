@@ -17,8 +17,10 @@
 <a href="<?php echo 'login.php'; ?> " > Login</a>
 <br>
 
-<a href="<?php echo 'registration.php'; ?>">Registration</a>
+<a href="<?php echo 'register.php'; ?>">Registration</a>
 
+
+<a href="<?php echo 'testpost.php'; ?>">Post</a>
 
 
 

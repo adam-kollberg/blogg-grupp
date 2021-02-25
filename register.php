@@ -5,6 +5,7 @@
 
 include("app/database/dbconnection.php");
 
+
 if (isset($_POST['register-btn'])) {
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -21,9 +22,9 @@ $stm->execute();
 
 
 
-if ($stm->rowCount() > 0 ) {
-echo '<p class="error">The email address is already registered!</p>';
-}
+  if ($stm->rowCount() > 0 ) {
+  echo '<p class="error">The email address is already registered!</p>';
+  }
 
 
 
@@ -36,6 +37,7 @@ if ($stm->rowCount() == 0) {
 
    if ($stm->execute()) {
    header ("location:index.php");
+   Echo "Sucess";
    } else {
    
 echo '<p class="error">Something went wrong!</p>';
@@ -72,22 +74,19 @@ echo '<p class="error">Something went wrong!</p>';
 
 
 
-
-
-
-<form action="register.php" method="post">
+<form action="post.php" method="post">
       <h2 class="form-title">Register</h2>
 
  <div>
-        <label>Username</label>
+        <label>Name:</label>
         <input type="text" name="name" class="text-input" placeholder = "Full name" require />
       </div>
       <div>
-        <label>Email</label>
+        <label>Email:</label>
         <input type="email" name="email"  class="text-input" placeholder="Your email" require/>
       </div>
       <div>
-        <label>Password</label>
+        <label>Password:</label>
         <input type="password" name="password"  class="text-input" placeholder="Choose your password" require/>
       </div>
       
