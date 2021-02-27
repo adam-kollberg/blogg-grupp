@@ -1,7 +1,7 @@
 <?php 
 
 
-include("database/dbconnection.php"); 
+include("app/database/dbconnection.php"); 
 
     if (isset($_POST['add-post'])) {
 

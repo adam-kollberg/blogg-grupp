@@ -4,6 +4,7 @@ include('app/database/dbconnection.php');
 
 
 
+
 if(isset($_POST['login'])){
 $user = $_POST['email'];
 $password= $_POST['password'];
@@ -26,7 +27,7 @@ $_SESSION['role'] = $return['role'];
 
 echo "Välkommen" .  $_SESSION['login_user'] . "du är:" . $_SESSION['role'];
 
-if ($_SESSION['role'] = $return['admin'];) {
+//f ($_SESSION['role'] = $return['admin'];) {
 
 }
 
@@ -36,8 +37,7 @@ if ($_SESSION['role'] = $return['admin'];) {
 
 
 
-
-}
+//}
 
 
 ?>
