@@ -1,7 +1,33 @@
-<?php
+<?php 
 
 
-include('app/database/dbconnection.php');
+include("database/dbconnection.php"); 
+
+    if (isset($_POST['add-post'])) {
+
+ 
+         $title = $_POST['title'];
+        //$url = $_POST['image'];
+         $body = $_POST['body'];
+       // $user_id = $_POST['user_id'];
+        //$comment_id = $_POST['comment_id'];
+
+if($title == '' || $body == ''){
+    //set error
+    $error = 'please fill out all required fields';
+
+}else{
+     $sql = "INSERT INTO posts
+                    (title,body)
+                VALUES('$title', '$body')";
+
+    $stmtinsert = $db->prepare($sql);
+
+
+}
+
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +36,12 @@ include('app/database/dbconnection.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POST</title>
+    <title>Document</title>
 </head>
 <body>
+    <!-- Enter posts -->
+
     
-<!-- Enter posts -->
 
 <h2>Add post</h2>
 
@@ -35,38 +62,5 @@ include('app/database/dbconnection.php');
 <button type="submit" name="add-post" class="btn btn-big"> Add Post</button>
 </form>
 
-<!-- View the posts -->
-
-<?php
-
-session_start();
-
-echo " Your are logged in as " . $_SESSION['username'];
-
-$sql = ("SELECT id, title, body, FROM posts");
-$stm = $pdo->prepare($sql);
-$stm->execute();
-// $return = $stm->fetch();         Behövs det att man har bindparam?
-
- while ($row = $stm->fetch()) { ?>
-
-    
-     <p>Your message: <br><?php echo $row['message']?> </p>  <br><br>
-
-      
-    
-    <!-- Ändra så att dessa länkas till delete.php och edit.php vad för info behövs visas när vi ska editera-->
-
-
-    <a href="=<?php echo $row['username']; echo $row['title']; echo $row['body']; ?>" class="del_btn">Delete</a> <span> </span>
-     <a href="=<?php echo $row['username']; echo $row['title']; echo $row['body'];  ?>" class="edit_btn">Edit</a> 
-    
-    </div>
-        <?php } ?>  </div>
-    
-
-?>
-
-</form>
 </body>
 </html>

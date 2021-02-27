@@ -1,28 +1,22 @@
 <?php 
 
-
-include("app/database/dbconnection.php"); 
-
-
-echo " New post";
+include("database/dbconnection.php"); 
 
 
     if (isset($_POST['add-post'])) {
 
-  
          $title = $_POST['title'];
-        //$url = $_POST['image'];
          $body = $_POST['body'];
+        //$url = $_POST['image'];
+       
        // $user_id = $_POST['user_id'];
         //$comment_id = $_POST['comment_id'];
 
-echo $title;die();
+echo $title, $body;die();
 
     }
 
-?>
-
-   /*  $sql = "INSERT INTO posts(username, title, body) VALUES('$username', '$title', '$body')";
+ $sql = "INSERT INTO posts(title, body) VALUES('$title', '$body')";
 $stm = $pdo->prepare($sql);
 $stm->execute();
     //$stm->bindParam(':image_IN', $image);
@@ -34,6 +28,8 @@ $stm->execute();
         Echo "Sucsess";
 
  }else{
+    
+    
 
     echo '<form action="handlepost.php" method="post">
     <table>
@@ -56,6 +52,10 @@ $stm->execute();
 }
 
     
-        }
+        
+
+    
+
+        ?>
     
 
