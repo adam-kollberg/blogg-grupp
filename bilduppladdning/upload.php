@@ -38,7 +38,7 @@ if($fileType != "png"  && $fileType != "gif" && $fileType != "jpg" && $fileType 
 
 if(move_uploaded_file($_FILES['imageToUpload']['tmp_name'],  $target_file)){
   
-    include ("db.php"); 
+    include ("../database/dbconnection.php"); 
 
     $sql = "INSERT INTO image (path) VALUES ('$target_file')";
     $stm = $pdo->prepare($sql);

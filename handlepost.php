@@ -25,7 +25,7 @@ $stm->execute();
 
     if ($stm->execute()) {
         header ("location:index.php");
-        Echo "Sucsess";
+        Echo "Success";
 
  }else{
     

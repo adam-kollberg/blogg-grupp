@@ -20,7 +20,9 @@
 <a href="<?php echo 'register.php'; ?>">Registration</a>
 
 
-<a href="<?php echo 'testpost.php'; ?>">Post</a>
+<a href="<?php echo 'post.php'; ?>">Post</a>
+
+<a href="<?php echo 'bilduppladdning/pic.php'; ?>">image</a>
 
 
 

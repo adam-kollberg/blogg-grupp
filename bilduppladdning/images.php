@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("../database/dbconnection.php");
 $stm = $pdo->query("SELECT path FROM images");
 while($row = $stm->fetch()){
 

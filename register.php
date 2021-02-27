@@ -3,7 +3,7 @@
 <?php 
 
 
-include("app/database/dbconnection.php");
+include("database/dbconnection.php");
 
 
 if (isset($_POST['register-btn'])) {
