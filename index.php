@@ -23,9 +23,9 @@
    
       <h1 class="slider-title">Trending Posts</h1>
     
-
-      <div class="post-wrapper">
       <?php while ($row = $stm->fetch()) { ?>
+      <div class="post-wrapper">
+      
         <div class="post">
        
           <img src="<?php echo $row['image']?>  " alt="" class="slider-image">
