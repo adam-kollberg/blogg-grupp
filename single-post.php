@@ -3,8 +3,11 @@ include("database/dbconnection.php");
 ?>
 
 
+
+
 <?php 
 if (isset($_GET['id'])) {
+  
     $id = $_GET['id'];
     $sql = "SELECT * FROM posts WHERE id=$id";
     $stm = $pdo->prepare($sql);
@@ -56,6 +59,28 @@ if (isset($_GET['id'])) {
       </div>
     </div>
 
-      <?php include(ROOT_PATH . "/app/includes/footer.php"); ?>
+    <div class="auth-content">
+    <form action="handlecomment.php" method="POST">
+    <h2 class="form-title">Comment</h2>
+
+
+<?php echo $_SESSION['id']; ?>
+
+<div>
+  <label>Your comment</label>
+  <textarea name="comment" rows="5" cols="40" class="text-input"></textarea>
+  <input type="hidden" name="id" value="<?php echo $result['id'];?>">
+  
+</div>
+<div>
+  <button type="submit" name="comment-submit" class="btn btn-big">Send comment</button>
+</div>
+
+</form>
+
+
+</div>
+
+<?php include(ROOT_PATH . "/app/includes/footer.php"); ?>
 </body>
 </html>

@@ -64,7 +64,7 @@ echo '<p class="error">Something went wrong!</p>';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style2.css">
 </head>
 <body>
 
