@@ -13,9 +13,18 @@ include("database/dbconnection.php");
 
          $title = $_POST['title'];
          $body = $_POST['body'];
-         $user_id = 1;
+         
+         if( isset($_SESSION['id']) )
+         {
+             $user_id = $_SESSION['id'];
+         }
+         else
+         {
+             $user_id = 1;
+         }
+
          $comment_id = 2;
-        //$comment_id = $_POST['comment_id'];
+   
         $upload_dir = "app/uploads/";
 
 $target_file = $upload_dir . basename($_FILES['imageToUpload']['name']);

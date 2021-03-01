@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
   $stm->execute();
   $return = $stm->fetch();
 
-
+ 
 
   if ($return[0] > 0) {
 
@@ -26,7 +26,7 @@ if (isset($_POST['login'])) {
     $_SESSION['password'] = $password;
     $_SESSION['role'] = $return['role'];
     $_SESSION['id'] = $return['id'];
-    
+
 
 
     header("location:index.php");
@@ -34,10 +34,9 @@ if (isset($_POST['login'])) {
     //fheader ($_SESSION['role'] = $return['admin'];) {
 
   }
-} else {
-  echo "Something went wrong";
-}
-
+} //else {
+  //echo "Something went wrong";
+//}
 
 
 //}
@@ -68,10 +67,16 @@ if (isset($_POST['login'])) {
       <input type="password" name="password" placeholder="Your password" required />
 
 
-
     </div>
     <button type="submit" name="login" value="login">Log In</button>
     <button type="submit" name="register" value="register" onclick="window.location.href='register.php'">register</button>
+
+   <?php
+    if (isset($_GET['error']))
+                        {
+                            echo "<span class='pt-2 font-weight-bold' style='color: red;'>Ett fel har uppstått: " . $_GET['error'] . "</span>";
+                        }
+                        ?>
   </form>
 
 
