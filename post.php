@@ -1,34 +1,4 @@
-<?php 
 
-
-include("database/dbconnection.php"); 
-
-    if (isset($_POST['add-post'])) {
-
- 
-         $title = $_POST['title'];
-        //$url = $_POST['image'];
-         $body = $_POST['body'];
-       // $user_id = $_POST['user_id'];
-        //$comment_id = $_POST['comment_id'];
-
-if($title == '' || $body == ''){
-    //set error
-    $error = 'please fill out all required fields';
-
-}else{
-     $sql = "INSERT INTO posts
-                    (title,body)
-                VALUES('$title', '$body')";
-
-    $stmtinsert = $db->prepare($sql);
-
-
-}
-
-    }
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,11 +11,10 @@ if($title == '' || $body == ''){
 <body>
     <!-- Enter posts -->
 
-    
 
 <h2>Add post</h2>
 
-<form action="handlepost.php" method="post">
+<form action="handlepost.php" method="post" enctype="multipart/form-data">
 <table>
 
 <label>Title</label>
@@ -56,7 +25,7 @@ if($title == '' || $body == ''){
 <textarea name="body" id="body"></textarea>
 
 <label>Image</label>
-<input type="file" name="image">
+<input type="file" name="imageToUpload">
 
 </table>
 <button type="submit" name="add-post" class="btn btn-big"> Add Post</button>

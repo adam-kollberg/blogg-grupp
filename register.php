@@ -20,8 +20,6 @@ $stm->execute();
 
 
 
-
-
   if ($stm->rowCount() > 0 ) {
   echo '<p class="error">The email address is already registered!</p>';
   }
@@ -36,7 +34,7 @@ if ($stm->rowCount() == 0) {
     $stm->bindParam(':password_IN', $password);
 
    if ($stm->execute()) {
-   header ("location:index.php");
+   //header ("location:index.php");
    Echo "Sucess";
    } else {
    
@@ -44,11 +42,7 @@ echo '<p class="error">Something went wrong!</p>';
 
    }
 
-
-
 }
-
-
 
 
 }
@@ -74,7 +68,7 @@ echo '<p class="error">Something went wrong!</p>';
 
 
 
-<form action="post.php" method="post">
+<form action="register.php" method="post">
       <h2 class="form-title">Register</h2>
 
  <div>

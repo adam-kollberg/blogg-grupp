@@ -22,9 +22,23 @@
 
 <a href="<?php echo 'post.php'; ?>">Post</a>
 
-<a href="<?php echo 'bilduppladdning/pic.php'; ?>">image</a>
 
 
+
+<?php
+session_start();
+if(isset($_SESSION['login_user']) && ($_SESSION['password'])){
+
+    echo " Välkommen " . $_SESSION['login_user'] ."" ;
+
+    if(isset($_SESSION['role']) && $_SESSION['role'] == "admin"){
+echo " du är inloggad admin";
+
+    }
+    echo '<a href="logout.php">Logga ut!</a>';
+    die();
+}
+?>
 
 </body>
 </html>
