@@ -63,11 +63,13 @@ echo '<p class="error">Something went wrong!</p>';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
 
-
+<div class="auth-content">
 <form action="register.php" method="post">
       <h2 class="form-title">Register</h2>
 
@@ -85,12 +87,26 @@ echo '<p class="error">Something went wrong!</p>';
       </div>
       
       <div>
-        <input type="submit" name="register-btn" class="btn btn-big">Register</input>
+        <input type="submit" name="register-btn" class="btn btn-big" value="Register"></input>
       </div>
       <p>Or <a href="<?php echo BASE_URL . '/login.php' ?>">Sign In</a></p>
+
+  <?php  if (isset($_POST['register-btn'])) {
+   //header ("location:index.php");
+   Echo "You have been registred" . "<br>" . "<a class ='register-login' href='login.php'>Go to login</a>";
+   }  
+   
+   ?>
     </form>
 
   </div>
+  </div>
+
+
+
+
+
+
 
 
 

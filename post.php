@@ -1,4 +1,20 @@
+<?php
+session_start();
+    if(isset($_SESSION['login_user']) && isset($_SESSION['password']))
+    {
+        if(isset($_SESSION['role']) && (($_SESSION['role'] == "admin") || ($_SESSION['role'] == "user") ))
+        {
+            echo '<script>alert("'. $_SESSION['id'] .'")</script>';
+        }
+    }
+    else
+    {
+        //echo '<script>alert("Du är  inte inloggad!")</script>';
+        header ('Location: login.php?error=Vänligen logga in');
 
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

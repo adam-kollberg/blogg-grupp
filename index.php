@@ -1,17 +1,10 @@
-<?php include("path.php"); ?>
+<?php include("database/dbconnection.php"); ?>
+<?php include("includes/header.php"); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog5</title>
-</head>
+
 <body>
 
     <h2>Blog-5<h2>
-
 
 
 <a href="<?php echo 'login.php'; ?> " > Login</a>
@@ -22,23 +15,42 @@
 
 <a href="<?php echo 'post.php'; ?>">Post</a>
 
+<?php $stm = $pdo->query("SELECT * FROM posts ");?>
+<div class="page-wrapper">
+
+
+<!-- Post Slider -->
+   
+      <h1 class="slider-title">Trending Posts</h1>
+    
+
+      <div class="post-wrapper">
+      <?php while ($row = $stm->fetch()) { ?>
+        <div class="post">
+       
+          <img src="<?php echo $row['image']?>  " alt="" class="slider-image">
+          <div class="post-info">
+            <h4><a href="single.html"><?php echo $row['title']?></a></h4>
+            
+            <button class ="btn">Read more</button>
+            
+          </div>
+        </div>
+        <?php } ?> 
+
+
+        
+        
+
+
+      </div>
+
+    </div>
+
+
+    
 
 
 
-<?php
-session_start();
-if(isset($_SESSION['login_user']) && ($_SESSION['password'])){
+<?php include("includes/footer.php")?>
 
-    echo " Välkommen " . $_SESSION['login_user'] ."" ;
-
-    if(isset($_SESSION['role']) && $_SESSION['role'] == "admin"){
-echo " du är inloggad admin";
-
-    }
-    echo '<a href="logout.php">Logga ut!</a>';
-    die();
-}
-?>
-
-</body>
-</html>

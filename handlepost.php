@@ -44,7 +44,7 @@ if($fileType != "png"  && $fileType != "gif" && $fileType != "jpg" && $fileType 
 echo $title, $body, $user_id, $comment_id;
 
 if(move_uploaded_file($_FILES['imageToUpload']['tmp_name'],  $target_file)){
-$sql = "INSERT INTO posts(title, image, body, user_id, comment_id) VALUES('$title','$target_file','$body', '$user_id', '$comment_id')";
+$sql = "INSERT INTO posts (title, image, body, user_id, comment_id) VALUES('$title','$target_file','$body', '$user_id', '$comment_id')";
 $stm = $pdo->prepare($sql);
 
 //$stm->execute();

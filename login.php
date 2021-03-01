@@ -3,6 +3,7 @@
 include('database/dbconnection.php');
 
 
+
 if (isset($_POST['login'])) {
   $user = $_POST['email'];
   $password = $_POST['password'];
@@ -34,8 +35,6 @@ if (isset($_POST['login'])) {
     //fheader ($_SESSION['role'] = $return['admin'];) {
 
   }
-} else {
-  echo "Something went wrong";
 }
 
 
@@ -54,25 +53,46 @@ if (isset($_POST['login'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
 
+  <link rel="stylesheet" href="assets/style.css">
+
 </head>
 
 <body>
 
-  <form method="post" action="login.php" name="signin-form">
-    <div class="form-element">
-      <label>Email</label>
-      <input type="text" name="email" placeholder="Your email" required />
-    </div>
-    <div class="form-element">
-      <label>Password</label>
-      <input type="password" name="password" placeholder="Your password" required />
+<div class="auth-content">
+
+<form action="login.php" method="post">
+  <h2 class="form-title">Login</h2>
+
+  <div>
+    <label>Email</label>
+    <input type="text" name="email" class="text-input">
+  </div>
+  <div>
+    <label>Password</label>
+    <input type="password" name="password" class="text-input">
+  </div>
+  <div>
+    <button type="submit" name="login" class="btn btn-big">Login</button>
+  </div>
+  <p>Or <a href="register.php">Sign Up</a></p>
+</form>
+
+</div>
 
 
 
-    </div>
-    <button type="submit" name="login" value="login">Log In</button>
-    <button type="submit" name="register" value="register" onclick="window.location.href='register.php'">register</button>
-  </form>
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
