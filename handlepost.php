@@ -47,14 +47,13 @@ if(move_uploaded_file($_FILES['imageToUpload']['tmp_name'],  $target_file)){
 $sql = "INSERT INTO posts (title, image, body, user_id, comment_id) VALUES('$title','$target_file','$body', '$user_id', '$comment_id')";
 $stm = $pdo->prepare($sql);
 
-//$stm->execute();
-    //$stm->bindParam(':image_IN', $image);
-   // $stm->bindParam(':user_id_IN', $user_id);
-   // $stm->bindParam(':comment_id_IN', $comment_id);
+
+
 
     $stm->execute();
-       //header ("location:index.php");
-        Echo "Success";
+            
+  header("location:post.php");
+
 
  }
 
@@ -62,6 +61,8 @@ $stm = $pdo->prepare($sql);
 
    
 ?>
+
+
 
     
 

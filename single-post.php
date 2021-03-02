@@ -4,7 +4,6 @@ include("database/dbconnection.php");
 
 
 
-
 <?php 
 if (isset($_GET['id'])) {
   
@@ -16,7 +15,6 @@ if (isset($_GET['id'])) {
 
 
 
-  }
 
 
 ?>
@@ -57,6 +55,16 @@ if (isset($_GET['id'])) {
 
         </div>
       </div>
+
+    </div>
+
+    <div class="auth-content">
+    <form action="handlecomment.php" method="POST">
+    <h2 class="form-title">Comment</h2>
+
+
+<?php echo $_SESSION['id']; ?>
+
     
     <?php  
  
@@ -94,6 +102,7 @@ if (isset($_GET['id'])) {
     <div class="auth-content">
     <form action="handlecomment.php" method="POST">
     <h2 class="form-title">Write your comment</h2>
+
 
 
 
