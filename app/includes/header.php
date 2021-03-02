@@ -1,36 +1,13 @@
 
-<?php session_start(); ?>
+<?php 
+session_start(); 
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
-
-  <!-- Custom Styling -->
-  <link rel="stylesheet" href="assets/style.css">
-
-  <title>Blog</title>
-</head>
-
-
-
-
+?>
 <header>
 
-<?php echo '<script>alert("'. $_SESSION['role'] .'")</script>';?>
-    <div class="logo">
-      <h1 class="logo-text"><span>COOL </span>BLOGG</h1>
+<div class="logo">
+      <h2 class="logo-text">Mill<span>house</span></h2>
+      
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">

@@ -28,7 +28,13 @@ session_start();
     <!-- Enter posts -->
 
 
-<h2>Add post</h2>
+
+
+
+    
+
+
+<h2>Add new post</h2>
 
 <form action="handlepost.php" method="post" enctype="multipart/form-data">
 <table>
