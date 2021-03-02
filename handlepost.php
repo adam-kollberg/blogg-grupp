@@ -49,9 +49,11 @@ $stm = $pdo->prepare($sql);
 
 
 
+
     $stm->execute();
             
   header("location:post.php");
+
 
  }
 

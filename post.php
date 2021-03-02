@@ -64,10 +64,19 @@ $getID = $_GET['id'];
         
         <?php } ?> 
 
-    <!-- Enter posts -->
+
 
     <div class="single-content">
 <h2>Add post</h2>
+
+
+
+
+    
+
+
+<h2>Add new post</h2>
+
 
 <div class="single-wrapper">
 <div class="single">
