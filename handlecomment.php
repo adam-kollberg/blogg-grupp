@@ -15,13 +15,9 @@ $sql = "INSERT into comments (comment, user_id, post_id) VALUES(:comment_IN, :us
     
 
    if ($stm->execute()) {
-   //header ("location:index.php");
-   Echo "Sucess";
-
-
-
-
-}
+    header('Location: '. $_SERVER['HTTP_REFERER']);
+   
+ }
 }
  
 ?>
