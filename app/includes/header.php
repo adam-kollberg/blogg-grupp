@@ -11,7 +11,7 @@ session_start();
     </div>
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
-      <li><a href="#">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="#">About</a></li>
       <li><a href="#">Services</a></li>
       <!-- <li><a href="#">Sign Up</a></li>
@@ -25,7 +25,7 @@ session_start();
         </a>
         <ul>
         <?php if (isset($_SESSION['login_user']) && ($_SESSION['role'] == "admin")) {
-       echo "<li><a href='post.php'>Add new post</a></li>"; 
+       echo "<li><a href='post.php'>Admin</a></li>"; 
     
     }else {
         echo "";

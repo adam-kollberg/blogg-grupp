@@ -3,8 +3,6 @@ include("database/dbconnection.php");
 ?>
 
 
-
-
 <?php 
 if (isset($_GET['id'])) {
   
@@ -12,12 +10,7 @@ if (isset($_GET['id'])) {
     $sql = "SELECT * FROM posts WHERE id=$id";
     $stm = $pdo->prepare($sql);
     $stm->execute();
-    $result = $stm->fetch();
-
-
-
-  }
-
+    $result = $stm->fetch(); }
 
 ?>
 
@@ -57,14 +50,23 @@ if (isset($_GET['id'])) {
 
         </div>
       </div>
+
+    </div>
+
+    <div class="auth-content">
+    <form action="handlecomment.php" method="POST">
+    <h2 class="form-title">Comment</h2>
+
+
+<?php echo $_SESSION['id']; ?>
+
     
     <?php  
  
- $post_id = $_GET['id'];
-    $sql = "SELECT * FROM comments  
+    $post_id = $_GET['id'];
+    $sql = "SELECT * FROM comments
     LEFT JOIN users ON comments.user_id=users.id
     LEFT JOIN posts ON comments.post_id=posts.id WHERE posts.id=$post_id";
-    ;
     
     
     $stm = $pdo->prepare($sql);
@@ -94,7 +96,6 @@ if (isset($_GET['id'])) {
     <div class="auth-content">
     <form action="handlecomment.php" method="POST">
     <h2 class="form-title">Write your comment</h2>
-
 
 
 
