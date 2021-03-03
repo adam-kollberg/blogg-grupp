@@ -10,7 +10,7 @@ $sql = "INSERT into comments (comment, user_id, post_id) VALUES(:comment_IN, :us
     $stm->bindParam(':comment_IN', $comment);
     $stm->bindParam(':user_IN', $userID);
     $stm->bindParam(':post_IN', $postID);
-    $stm->execute();
+   
 
     
 

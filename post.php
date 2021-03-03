@@ -3,7 +3,8 @@ include("database/dbconnection.php");
 include("path.php"); 
 include(ROOT_PATH . "/app/includes/header.php"); 
 
-$stm = $pdo->query('SELECT id, title, body, image FROM posts');
+$stm = $pdo->query('SELECT * FROM posts');
+
 //$editMessage = $_GET['edit'];
 //$getID = $_GET['id'];
 
@@ -49,19 +50,25 @@ $stm = $pdo->query('SELECT id, title, body, image FROM posts');
     
       <?php while ($row = $stm->fetch()) { ?>
       <div class="post-wrapper">
+
+          
       
         <div class="post">
-        
+        <p> <?php echo $row['category']; ?> </p>
           <img src="<?php echo $row['image']?>  " alt="" class="slider-image">
           <div class="post-info">
             <h3><?php echo $row['title'];?></h3>
 
             
+            <p> Created: <?php echo date("y.m.d",strtotime( $row['created'])); ?> </p>
             
             <a href="deletepost.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
 
             
-            <a href="editpost.php?edit=<?php echo $row['id'] ?>&id=<?php echo $row['body'] ?>" class="edit_btn">Edit</a> 
+            <a href="editpost.php?edit=<?php echo $row['title'] ?>&body=<?php echo $row['body']?>&id=<?php echo $row['id'] ?>" class="edit_btn">Edit</a> 
+
+            
+          
           </div>
           
         </div>
@@ -80,34 +87,27 @@ $stm = $pdo->query('SELECT id, title, body, image FROM posts');
 <div class="single">
 <form action="handlepost.php" method="post" enctype="multipart/form-data">
 <table>
-
-
 <h3><label>Title</label></h3>
 <input type="text" name="title" class="text-input">
-<label for ="categories">Choose your category</label>
-<select name="categories">
-  <option value="Sunglasses">Sunglasses</option>
-  <option value="Watches">Watches</option>
-  <option value="Jewelery">Jewelery</option>
-  <option value="Interior">Interior</option>
-  <option value="Clothes">Clothes</option>
+<label for="categories">Choose your category</label>
+<select name="categories" id="cars">
+<option value="Sunglasses">Sunglasses</option>
+<option value="Watches">Watches</option>
+<option value="Jewelery">Jewelery</option>
+<option value="Interior">Interior</option>
+<option value="Clothes">Clothes</option>
 </select>
 <div class="post-content">
-
 <textarea name="body" id="body" rows="5" cols="40"></textarea>
 </div>
-
 <h3><label>Image</label></h3>
 <input type="file" name="imageToUpload">
-
 </table>
 <button type="submit" name="add-post" class="btn btn-big"> Add Post</button>
 
 
-
 </form>
 </div>
-
 </div>
 </div>
 

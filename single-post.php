@@ -53,7 +53,9 @@ if (isset($_GET['id'])) {
 
     </div>
 
-    <div class="auth-content">
+    <div class="auth-content" id="comment-div"> <?php if(!isset($_SESSION['login_user'])){
+      ?> <style> #comment-div{display:none;} </style> <?php } ?>
+    
     <form action="handlecomment.php" method="POST">
     <h2 class="form-title">Comment</h2>
 
@@ -93,7 +95,8 @@ if (isset($_GET['id'])) {
 </div>
 
 
-    <div class="auth-content">
+    <div class="auth-content" id="comment-div2"> <?php if(!isset($_SESSION['login_user'])){
+      ?> <style> #comment-div2{display:none;} </style> <?php } ?>
     <form action="handlecomment.php" method="POST">
     <h2 class="form-title">Write your comment</h2>
 

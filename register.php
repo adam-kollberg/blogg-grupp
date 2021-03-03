@@ -34,8 +34,8 @@ if ($stm->rowCount() == 0) {
     $stm->bindParam(':password_IN', $password);
 
    if ($stm->execute()) {
-   //header ("location:index.php");
-   Echo "Sucess";
+  header ("location:login.php");
+  
    } else {
    
 echo '<p class="error">Something went wrong!</p>';
