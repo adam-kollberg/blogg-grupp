@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
     <h2 class="form-title">Comment</h2>
 
 
-<?php echo $_SESSION['id']; ?>
+
 
     
     <?php  

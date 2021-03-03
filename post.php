@@ -81,17 +81,23 @@ $stm = $pdo->query('SELECT id, title, body, image FROM posts');
 <form action="handlepost.php" method="post" enctype="multipart/form-data">
 <table>
 
-<h1 class="post-title">
-<label>Title</label>
-<input type="text" name="title" class>
-</h1>
 
+<h3><label>Title</label></h3>
+<input type="text" name="title" class="text-input">
+<label for ="categories">Choose your category</label>
+<select name="categories">
+  <option value="Sunglasses">Sunglasses</option>
+  <option value="Watches">Watches</option>
+  <option value="Jewelery">Jewelery</option>
+  <option value="Interior">Interior</option>
+  <option value="Clothes">Clothes</option>
+</select>
 <div class="post-content">
-<label>Body</label>
-<textarea name="body" id="body"></textarea>
+
+<textarea name="body" id="body" rows="5" cols="40"></textarea>
 </div>
 
-<label>Image</label>
+<h3><label>Image</label></h3>
 <input type="file" name="imageToUpload">
 
 </table>
