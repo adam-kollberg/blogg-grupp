@@ -36,14 +36,14 @@ include("database/dbconnection.php");
 
 <h1 class="post-title">
 <label>Title</label>
-<input type="text" name="title" >
-<b> <?php $_SESSION['id']?> </b>
-<input type="hidden" name="id" value="<?php echo $row['id']; ?>"/> 
+<input type="text" name="title" value="<?php echo $_GET['edit']; ?>" >
+
+<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/> 
 </h1>
 
 <div class="post-content">
 <label>Body</label>
-<textarea name="body" id="body" value=""> </textarea>
+<textarea name="body" id="body"> <?php echo $_GET['body']; ?> </textarea>
 </div>
 
 

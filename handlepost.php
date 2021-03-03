@@ -14,7 +14,8 @@ session_start();
          $title = $_POST['title'];
          $body = $_POST['body'];
          $user_id = $_SESSION['id'];
-         $comment_id = 2;
+         $category = $_POST['categories'];
+         
         //$comment_id = $_POST['comment_id'];
         $upload_dir = "app/uploads/";
 
@@ -44,7 +45,7 @@ if($fileType != "png"  && $fileType != "gif" && $fileType != "jpg" && $fileType 
 
 
 if(move_uploaded_file($_FILES['imageToUpload']['tmp_name'],  $target_file)){
-$sql = "INSERT INTO posts (title, image, body, user_id, comment_id) VALUES('$title','$target_file','$body', '$user_id', '$comment_id')";
+$sql = "INSERT INTO posts (title, category, image, body, user_id) VALUES('$title','$category','$target_file','$body', '$user_id')";
 $stm = $pdo->prepare($sql);
 
 
