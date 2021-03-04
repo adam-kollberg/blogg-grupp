@@ -2,7 +2,16 @@
 include("database/dbconnection.php");
 
 
+if (isset($_GET['id'])) {
+  
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM posts WHERE id=$id";
+    $stm = $pdo->prepare($sql);
+    $stm->execute();
+    $result = $stm->fetch(); }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +40,7 @@ include("database/dbconnection.php");
 <div class="single-content">
 
 <div class="single-wrapper">
-<form action="handleeditpost.php" method="get" enctype="multipart/form-data">
+<form action="handleeditpost.php" method="POST" enctype="multipart/form-data">
 <table>
 
 <h1 class="post-title">
@@ -48,10 +57,11 @@ include("database/dbconnection.php");
 
 
 <label>Image</label>
-<input type="file" name="imageToUpload" value="">
+<input type="file" name="imageToUpload">
+<img src="<?php echo BASE_URL . "/". $result['image']?>" alt="" width="500" height="500">
 
 </table>
-<input type="submit" value="edit">
+<input type="submit" value="updateEdit">
 
 </div>
 </div>
