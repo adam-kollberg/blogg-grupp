@@ -28,33 +28,46 @@ include("database/dbconnection.php");
 
 <?php include(ROOT_PATH . "/app/includes/header.php"); ?>
 
-<div class="single-content">
 
-<div class="single-wrapper">
-<form action="handleeditpost.php" method="get" enctype="multipart/form-data">
-<table>
+<div class="auth-content">
 
-<h1 class="post-title">
-<label>Title</label>
-<input type="text" name="title" value="<?php echo $_GET['edit']; ?>" >
+<form action="app/controllers/handleeditpost.php" method="POST">
 
-<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/> 
-</h1>
+  <h2 class="form-title">Edit Post</h2>
 
-<div class="post-content">
-<label>Body</label>
-<textarea name="body" id="body"> <?php echo $_GET['body']; ?> </textarea>
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" class="text-input" value="<?php echo $_GET['edit']; ?>">
+  </div>
+  <div>
+    <label>Body</label>
+    <textarea rows="20" cols="40" name="body" class="text-input"><?php echo $_GET['body']; ?></textarea>
+    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/>
+  </div>
+  <div>
+  <label for="categories">Change your category</label>
+<select name="categories" id="" value="<?php echo $_GET['category'];?>">
+<option value="Sunglasses">Sunglasses</option>
+<option value="Watches">Watches</option>
+<option value="Jewelery">Jewelery</option>
+<option value="Interior">Interior</option>
+<option value="Clothes">Clothes</option>
+</select>
+  </div>
+  
+  <div>
+    <button type="submit" name="submit_edit" class="btn btn-big">Edit post</button>
+  </div>
+  
+</form>
+
 </div>
 
 
-<label>Image</label>
-<input type="file" name="imageToUpload" value="">
 
-</table>
-<input type="submit" value="edit">
 
-</div>
-</div>
+
+
 
 <?php include(ROOT_PATH . "/app/includes/footer.php"); ?>
 </body>

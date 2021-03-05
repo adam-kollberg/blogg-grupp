@@ -6,6 +6,10 @@
 include("database/dbconnection.php");
 
 
+if(!isset($_POST['name']) && !isset($_POST['email']) && !isset($_POST['password'])) {
+  echo "you have not submitted all fields";
+  
+  }
 if (isset($_POST['register-btn'])) {
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -26,6 +30,7 @@ $stm->execute();
 
 
 
+
 if ($stm->rowCount() == 0) {
     $sql = "INSERT into users (name, email, password) VALUES(:name_IN, :email_IN, :password_IN)";
     $stm = $pdo->prepare($sql);
@@ -34,7 +39,7 @@ if ($stm->rowCount() == 0) {
     $stm->bindParam(':password_IN', $password);
 
    if ($stm->execute()) {
-  header ("location:login.php");
+
   
    } else {
    
@@ -46,6 +51,12 @@ echo '<p class="error">Something went wrong!</p>';
 
 
 }
+
+if(!isset($_POST['name']) && !isset($_POST['email']) && !isset($_POST['password'])) {
+echo "you have not submitted all fields";
+
+}
+
 
 
 
@@ -89,14 +100,9 @@ echo '<p class="error">Something went wrong!</p>';
       <div>
         <input type="submit" name="register-btn" class="btn btn-big" value="Register"></input>
       </div>
-      <p>Or <a href="<?php echo BASE_URL . '/login.php' ?>">Sign In</a></p>
+      <p>Or <a href="login.php">Sign In</a></p>
 
-  <?php  if (isset($_POST['register-btn'])) {
-   //header ("location:index.php");
-   Echo "You have been registred" . "<br>" . "<a class ='register-login' href='login.php'>Go to login</a>";
-   }  
-   
-   ?>
+  
     </form>
 
   </div>

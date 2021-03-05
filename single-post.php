@@ -57,12 +57,8 @@ if (isset($_GET['id'])) {
       ?> <style> #comment-div{display:none;} </style> <?php } ?>
     
     <form action="handlecomment.php" method="POST">
-    <h2 class="form-title">Comment</h2>
+    <h2 class="form-title">Comments</h2>
 
-
-
-
-    
     <?php  
  
     $post_id = $_GET['id'];
@@ -76,13 +72,14 @@ if (isset($_GET['id'])) {
     
     ?>
 
-<h2>COMMENTS</h2>
+
 <?php while ($row = $stm->fetch()) { ?> 
 <div class="comments-wrapper">
 
 <div class="comments">
-<h3><?php echo $row['name'];?></h3>
-<p><?php echo $row['comment'];?></hp>
+<i class="fas fa-comments"></i>
+<h6><?php echo $row['name'];?></h6>
+<p class ="comment"><?php echo $row['comment'];?></hp>
 
 </div>
 

@@ -21,6 +21,17 @@
     color: #000;
     margin: 5px;
   }
+
+  .category-tag {
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+
+
+  }
   
   a {
     text-decoration: none;
@@ -207,17 +218,15 @@
   
   /* POST First */
 
+  .post_section {
+    width: 100%;
+  }
+
   .post-wrapper {
     display: flex;
     flex-direction: row;
-    
-    
     flex-wrap: wrap;
-    
-    
-
-
-  }
+    }
 
   .post {
   
@@ -258,15 +267,13 @@
   }
   .single-wrapper {
 
-  width: 800px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  
   }
 
   .single h1 {
@@ -275,15 +282,14 @@
   
   
   
-  
-
-  
-
 .comments-wrapper {
 display: flex;
 flex-direction: row;
 padding: 20px;
   }
+
+
+
 
   
   

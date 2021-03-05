@@ -1,5 +1,6 @@
 <?php if (isset($_POST['comment-submit'])){
-include("database/dbconnection.php");
+include('../../path.php');
+include(ROOT_PATH . '/database/dbconnection.php');
 session_start();
 $comment = $_POST['comment'];
 $userID = $_SESSION['id'];
