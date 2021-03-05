@@ -2,13 +2,16 @@
 include("database/dbconnection.php");
 
 
-if (isset($_GET['id'])) {
+if (isset($_GET['edit'])) {
   
-    $id = $_GET['id'];
+    $id = $_GET['edit'];
     $sql = "SELECT * FROM posts WHERE id=$id";
-    $stm = $pdo->prepare($sql);
-    $stm->execute();
-    $result = $stm->fetch(); }
+    $stm = $pdo->query($sql);
+
+    while($row = $stm->fetch()) {
+      $title = $row['title'];
+      $body = $row['body'];
+      $image = $row['image'];
 
 ?>
 
@@ -40,31 +43,36 @@ if (isset($_GET['id'])) {
 <div class="single-content">
 
 <div class="single-wrapper">
-<form action="handleeditpost.php" method="POST" enctype="multipart/form-data">
+<form action="handleeditpost.php?edit=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
 <table>
 
 <h1 class="post-title">
 <label>Title</label>
-<input type="text" name="title" value="<?php echo $_GET['edit']; ?>" >
-
-<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/> 
-</h1>
+<input type="text" name="title" value="<?php echo $row['title']; ?>" >
 
 <div class="post-content">
 <label>Body</label>
-<textarea name="body" id="body"> <?php echo $_GET['body']; ?> </textarea>
+<textarea name="body" id="body"> <?php echo $row['body']; ?> </textarea>
 </div>
 
 
 <label>Image</label>
 <input type="file" name="imageToUpload">
-<img src="<?php echo BASE_URL . "/". $result['image']?>" alt="" width="500" height="500">
+<img src="<?php echo BASE_URL . "/". $row['image']?>" alt="" width="500" height="500">
 
 </table>
-<input type="submit" value="updateEdit">
+<input name="update_clicked" type="submit" value="updateEdit">
 
 </div>
 </div>
+
+<?php 
+    }
+  
+  }
+?>
+
+
 
 <?php include(ROOT_PATH . "/app/includes/footer.php"); ?>
 </body>

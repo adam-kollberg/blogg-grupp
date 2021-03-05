@@ -5,23 +5,6 @@ include(ROOT_PATH . "/app/includes/header.php");
 
 $stm = $pdo->query('SELECT * FROM posts');
 
-//$editMessage = $_GET['edit'];
-//$getID = $_GET['id'];
-
-/* session_start();
-    if(isset($_SESSION['login_user']) && isset($_SESSION['password']))
-    {
-        if(isset($_SESSION['role']) && (($_SESSION['role'] == "admin") || ($_SESSION['role'] == "user") ))
-        {
-           // echo '<script>alert("'. $_SESSION['id'] .'")</script>';
-        }
-    }
-    else
-    {
-        
-        header ('Location: login.php?error=Vänligen logga in');
-
-    } */
 
 ?>
 
@@ -59,15 +42,15 @@ $stm = $pdo->query('SELECT * FROM posts');
           <div class="post-info">
             <h3><?php echo $row['title'];?></h3>
 
-            
+              
             <p> Created: <?php echo date("y.m.d",strtotime( $row['created'])); ?> </p>
             
             <a href="deletepost.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
 
             
-            <a href="editpost.php?edit=<?php echo $row['title'] ?>&body=<?php echo $row['body']?>&id=<?php echo $row['id'] ?>" class="edit_btn">Edit</a> 
+            <a href="editpost.php?edit=<?php echo $row['id'] ?>" class="edit_btn">Edit</a> 
 
-            
+          
           
           </div>
           
@@ -82,7 +65,7 @@ $stm = $pdo->query('SELECT * FROM posts');
 
 <h2>Add new post</h2>
 
-
+  <!-- option for categories-->
 <div class="single-wrapper">
 <div class="single">
 <form action="handlepost.php" method="post" enctype="multipart/form-data">

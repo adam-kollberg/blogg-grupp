@@ -59,9 +59,6 @@ if (isset($_GET['id'])) {
     <form action="handlecomment.php" method="POST">
     <h2 class="form-title">Comment</h2>
 
-
-
-
     
     <?php  
  
@@ -113,7 +110,6 @@ if (isset($_GET['id'])) {
 </div>
 
 </form>
-
 
 </div>
 

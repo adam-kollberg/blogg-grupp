@@ -6,21 +6,24 @@ include("database/dbconnection.php");?>
 <!-- $stm = $pdo->prepare($sql); -->
 <!-- $stm->execute(); -->
 <!-- //$result = $stm->fetch(); -->
-<?php
-if(isset($_POST['updateEdit']))
-{
-    $title = $_POST['title'];
-    $body = $_POST['body'];
-    $user_id = $_SESSION['id'];
-    $category = $_POST['categories'];
 
-   $stm = $pdo->query("UPDATE posts SET body ='$body', title = '$title', category ='$category' WHERE id=$id");
- 
-   
- if($stm->execute()){
-     header("location:../editpost.php");
- }else{
-     echo "error";
+<?php 
+if(isset($_POST['update_clicked']) && isset($_GET['edit'])) {
+ $new_title = $_POST['title'];
+ $new_body = $_POST['body'];
+ $id = $_GET['edit'];
+ $stm = "UPDATE posts SET
+         title = :title, 
+         body = :body 
+         WHERE id = $id";
+
+ $stmt->prepare($stm);
+ $stmt->bindParam(":title", $new_title);
+ $stmt->bindParam(":body", $body);
+ if(!$stmt->execute()) {
+ die("Something went wrong!");
+ } else {
+ header("location:editpost.php?edit=$id");
  }
 }
- ?>
+?>
