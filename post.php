@@ -8,20 +8,17 @@ $stm = $pdo->query('SELECT * FROM posts');
 //$editMessage = $_GET['edit'];
 //$getID = $_GET['id'];
 
-/* session_start();
-    if(isset($_SESSION['login_user']) && isset($_SESSION['password']))
-    {
-        if(isset($_SESSION['role']) && (($_SESSION['role'] == "admin") || ($_SESSION['role'] == "user") ))
-        {
-           // echo '<script>alert("'. $_SESSION['id'] .'")</script>';
-        }
-    }
-    else
-    {
-        
-        header ('Location: login.php?error=Vänligen logga in');
 
-    } */
+    
+if(isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
+  echo "<script>alert('Please log in as admin!'); location.href='index.php';</script>";
+  
+
+}
+        
+
+
+    
 
 ?>
 
@@ -86,10 +83,11 @@ $stm = $pdo->query('SELECT * FROM posts');
           $stm = $pdo->prepare($sql);
           $stm->execute();
           while ($comments = $stm->fetch()) { ?>
-
+            <div class="comment-edit">
+            <i class="fas fa-comments"></i>
             <p> <?php echo $comments['comment'] ?> </p>
             <a href="app/controllers/handleDeleteComments.php?del=<?php echo $comments['id']; ?>">Delete comment</a>
-
+            </div>
           
 
 
@@ -108,11 +106,11 @@ $stm = $pdo->query('SELECT * FROM posts');
       <h2>Add new post</h2>
       <div class="single">
         <form action="handlepost.php" method="post" enctype="multipart/form-data">
-          <table>
+          
             <h3><label>Title</label></h3>
             <input type="text" name="title" class="text-input">
-            <label for="categories">Choose your category</label>
-            <select name="categories" id="cars">
+            <h3><label for="categories">Choose your category</label><h3>
+            <select name="categories"  class="text-input">
               <option value="Sunglasses">Sunglasses</option>
               <option value="Watches">Watches</option>
               <option value="Jewelery">Jewelery</option>
@@ -120,11 +118,13 @@ $stm = $pdo->query('SELECT * FROM posts');
               <option value="Clothes">Clothes</option>
             </select>
             <div class="post-content">
-              <textarea name="body" id="body" rows="30" cols="40"></textarea>
+            <h3><label>Your text</label></h3>
+              <textarea name="body" id="body" rows="20" cols="40" class="text-input"></textarea>
             </div>
             <h3><label>Image</label></h3>
-            <input type="file" name="imageToUpload">
-          </table>
+            <div>
+            <input type="file" name="imageToUpload" class="btn">
+          </div>
           <button type="submit" name="add-post" class="btn btn-big"> Add Post</button>
 
 

@@ -2,20 +2,32 @@
 
 <?php 
 
-
 include("database/dbconnection.php");
 
-
-if(!isset($_POST['name']) && !isset($_POST['email']) && !isset($_POST['password'])) {
-  echo "you have not submitted all fields";
-  
-  }
 if (isset($_POST['register-btn'])) {
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 $salt = "2626236266AsashÄASASAS";
 $password = md5($password.$salt);
+
+
+$data = $_POST;
+
+if(empty($data['name']) ||
+   empty($data['email']) ||
+   empty($data['password']))
+   
+{
+echo "<script>alert('Please submit all the fields'); location.href='register.php';</script>";
+die();
+ 
+
+}else{
+  echo "Your registration is successful!";
+}
+
+
 
 $sql = ("SELECT * from users WHERE email=:email_IN");
 $stm = $pdo->prepare($sql);
@@ -27,8 +39,6 @@ $stm->execute();
   if ($stm->rowCount() > 0 ) {
   echo '<p class="error">The email address is already registered!</p>';
   }
-
-
 
 
 if ($stm->rowCount() == 0) {
@@ -52,22 +62,13 @@ echo '<p class="error">Something went wrong!</p>';
 
 }
 
-if(!isset($_POST['name']) && !isset($_POST['email']) && !isset($_POST['password'])) {
-echo "you have not submitted all fields";
-
-}
-
-
 
 
 
 ?>
-
-
-
-
-
-<!DOCTYPE html>
+  
+  
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

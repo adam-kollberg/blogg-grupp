@@ -242,6 +242,23 @@
     height: 300px;
     
   }
+
+
+  .comment-edit {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  margin-top: 10px;
+  padding: 10px;
+  }
+
+  .comment-edit a {
+    color: red;
+  }
+
+  .comment-edit p {
+    color: black;
+  }
   
   
   
@@ -329,7 +346,6 @@ padding: 20px;
     background: #000;;
     color: #d3d3d3;
     height: 30vh;
-    position: relative;
     width: 100%
   }
   
