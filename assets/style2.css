@@ -220,12 +220,13 @@
 
   .post_section {
     width: 100%;
+    
   }
 
   .post-wrapper {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    
     }
 
   .post {

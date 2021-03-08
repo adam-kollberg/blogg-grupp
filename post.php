@@ -73,27 +73,27 @@ if(isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
 
 
           </div>
-
+          
           
           <h5> Comments</h5>
           <?php
           $post_id = $row['id'];
 
           $sql = "SELECT * FROM comments WHERE post_id=$post_id";
-          $stm = $pdo->prepare($sql);
-          $stm->execute();
-          while ($comments = $stm->fetch()) { ?>
+          $stmt = $pdo->prepare($sql);
+          $stmt->execute();
+          while ($comments = $stmt->fetch()) { ?>
             <div class="comment-edit">
             <i class="fas fa-comments"></i>
             <p> <?php echo $comments['comment'] ?> </p>
             <a href="app/controllers/handleDeleteComments.php?del=<?php echo $comments['id']; ?>">Delete comment</a>
             </div>
-          
+          </div>
 
-
-
-          <?php } ?>
         <?php } ?>
+
+        <?php } ?>
+          </div>
 
 
   

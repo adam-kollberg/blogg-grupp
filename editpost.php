@@ -34,8 +34,19 @@ include("database/dbconnection.php");
 <form action="app/controllers/handleeditpost.php" method="POST">
 
   <h2 class="form-title">Edit Post</h2>
-
+<div>
+<?php 
+$id=$_GET['id'];
+$sql = "SELECT * FROM posts where id=$id";
+  $stm = $pdo->prepare($sql);
+  $stm->execute();
+  $row=$stm->fetch();?>
+<img src="<?php echo $row['image']?>" width="300" height="300">
+<label>Change picture</label>
+<input type="file" name="image_upload" id="">
+</div>
   <div>
+    
     <label>Title</label>
     <input type="text" name="title" class="text-input" value="<?php echo $_GET['edit']; ?>">
   </div>
