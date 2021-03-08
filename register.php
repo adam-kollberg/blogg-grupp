@@ -24,7 +24,7 @@ die();
  
 
 }else{
-  echo "Your registration is successful!";
+  echo "<script>alert('Your registration is succesfull, please log in here.'); location.href='login.php';</script>";
 }
 
 

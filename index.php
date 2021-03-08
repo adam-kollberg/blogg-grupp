@@ -49,12 +49,11 @@ please feel free to comment on our blog posts!
 <!-- Post Slider -->
    
       <h1 class="slider-title">New Posts</h1>
-    
+      <div class="post-wrapper-start">
       <?php while ($row = $stm->fetch()) { ?>
-      <div class="post-wrapper">
       
-        <div class="post">
-        
+      <div class="post">
+        <p class="category-tag"> <?php echo $row['category']; ?> </p>
           <img src="<?php echo $row['image']?>  " alt="" class="slider-image">
           <div class="post-info">
             <h3><?php echo $row['title'];?></h3>

@@ -14,8 +14,12 @@ if(isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
   echo "<script>alert('Please log in as admin!'); location.href='index.php';</script>";
   
 
+ 
+
 }
-        
+if (!isset($_SESSION['role'])) {
+  echo "<script>alert('Please log in!'); location.href='index.php';</script>";
+}       
 
 
     
@@ -75,25 +79,28 @@ if(isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
           </div>
           
           
-          <h5> Comments</h5>
+          <h5 class="comments-title"> Comments</h5>
           <?php
           $post_id = $row['id'];
 
           $sql = "SELECT * FROM comments WHERE post_id=$post_id";
           $stmt = $pdo->prepare($sql);
           $stmt->execute();
+          
           while ($comments = $stmt->fetch()) { ?>
             <div class="comment-edit">
             <i class="fas fa-comments"></i>
             <p> <?php echo $comments['comment'] ?> </p>
             <a href="app/controllers/handleDeleteComments.php?del=<?php echo $comments['id']; ?>">Delete comment</a>
             </div>
+        
           </div>
 
         <?php } ?>
-
+        </div>
         <?php } ?>
-          </div>
+          
+      
 
 
   
@@ -103,8 +110,9 @@ if(isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
   <section class="add_post_section">
 
      <div class="single-wrapper">
-      <h2>Add new post</h2>
+      
       <div class="single">
+      <h2>Add new post</h2>
         <form action="handlepost.php" method="post" enctype="multipart/form-data">
           
             <h3><label>Title</label></h3>
@@ -117,16 +125,19 @@ if(isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
               <option value="Interior">Interior</option>
               <option value="Clothes">Clothes</option>
             </select>
-            <div class="post-content">
+            <div>
+              <div>
             <h3><label>Your text</label></h3>
               <textarea name="body" id="body" rows="20" cols="40" class="text-input"></textarea>
-            </div>
-            <h3><label>Image</label></h3>
-            <div>
-            <input type="file" name="imageToUpload" class="btn">
           </div>
+          <div>
+            <h3><label>Image</label></h3>
+            
+            <input type="file" name="imageToUpload" class="btn">
+         </div>
+          <div>
           <button type="submit" name="add-post" class="btn btn-big"> Add Post</button>
-
+          </div>
 
         </form>
       </div>

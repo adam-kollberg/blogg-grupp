@@ -22,7 +22,7 @@ include("database/dbconnection.php");
   <!-- Custom Styling -->
   <link rel="stylesheet" href="assets/style2.css">
 
-  <title><?php echo $result['title']; ?> | Millhouse</title>
+  <title>Edit post: <?php echo $_GET['edit']; ?> | Millhouse</title>
 </head>
 <body>
 
@@ -31,7 +31,7 @@ include("database/dbconnection.php");
 
 <div class="auth-content">
 
-<form action="app/controllers/handleeditpost.php" method="POST">
+<form action="app/controllers/handleeditpost.php" method="POST" enctype="multipart/form-data" >
 
   <h2 class="form-title">Edit Post</h2>
 <div>
@@ -58,11 +58,12 @@ $sql = "SELECT * FROM posts where id=$id";
   <div>
   <label for="categories">Change your category</label>
 <select name="categories" id="" value="<?php echo $_GET['category'];?>">
-<option value="Sunglasses">Sunglasses</option>
+<option value="<?php echo $_GET['category'];?>"><?php echo $_GET['category'];?></option>
 <option value="Watches">Watches</option>
 <option value="Jewelery">Jewelery</option>
 <option value="Interior">Interior</option>
 <option value="Clothes">Clothes</option>
+<option value="Sunglasses">Sunglasses</option>
 </select>
   </div>
   
