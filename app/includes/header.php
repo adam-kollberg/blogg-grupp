@@ -1,7 +1,6 @@
 
 <?php 
 session_start(); 
-
 ?>
 <header>
 
@@ -12,10 +11,7 @@ session_start();
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="nav">
       <li><a href="index.php">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <!-- <li><a href="#">Sign Up</a></li>
-      <li><a href="#">Login</a></li> -->
+      
       <li>
         <a href="#">
           <i class="fa fa-user"></i>

@@ -21,21 +21,10 @@
         <h2>Quick Links</h2>
         <br>
         <ul>
-          <a href="#">
-            <li>Events</li>
+          <a href="index.php">
+            <li>Home</li>
           </a>
-          <a href="#">
-            <li>Team</li>
-          </a>
-          <a href="#">
-            <li>Mentores</li>
-          </a>
-          <a href="#">
-            <li>Gallery</li>
-          </a>
-          <a href="#">
-            <li>Terms and Conditions</li>
-          </a>
+         
         </ul>
       </div>
 

@@ -27,15 +27,19 @@ if (isset($_POST['login'])) {
     $_SESSION['password'] = $password;
     $_SESSION['role'] = $return['role'];
     $_SESSION['id'] = $return['id'];
-    
+
 
 
     header("location:index.php");
 
     //fheader ($_SESSION['role'] = $return['admin'];) {
 
+  } else {
+    echo "<script>alert('Wrong email or password');</script>";
   }
 }
+
+
 
 
 
@@ -59,41 +63,27 @@ if (isset($_POST['login'])) {
 
 <body>
 
-<div class="auth-content">
+  <div class="auth-content">
 
-<form action="login.php" method="post">
-  <h2 class="form-title">Login</h2>
+    <form action="login.php" method="post">
+      <h2 class="form-title">Login</h2>
 
-  <div>
-    <label>Email</label>
-    <input type="text" name="email" class="text-input">
+      <div>
+        <label>Email</label>
+        <input type="text" name="email" class="text-input">
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" class="text-input">
+      </div>
+      <div>
+        <button type="submit" name="login" class="btn btn-big">Login</button>
+      </div>
+      <p>Or <a href="register.php">Sign Up</a></p>
+    </form>
+
   </div>
-  <div>
-    <label>Password</label>
-    <input type="password" name="password" class="text-input">
-  </div>
-  <div>
-    <button type="submit" name="login" class="btn btn-big">Login</button>
-  </div>
-  <p>Or <a href="register.php">Sign Up</a></p>
-</form>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_
 
 </body>
 

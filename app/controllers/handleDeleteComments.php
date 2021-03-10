@@ -7,6 +7,5 @@ $sql = "DELETE FROM comments WHERE id=$deleteID";
 $stm = $pdo->prepare($sql);
 if ($stm->execute()) {
     header("location:" . BASE_URL . "/post.php");
+ }
 }
-}
-?>

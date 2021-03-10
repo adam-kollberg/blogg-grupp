@@ -9,20 +9,16 @@ $stm = $pdo->query('SELECT * FROM posts');
 //$getID = $_GET['id'];
 
 
-    
-if(isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
+
+if (isset($_SESSION['role']) && (($_SESSION['role'] == "user"))) {
   echo "<script>alert('Please log in as admin!'); location.href='index.php';</script>";
-  
-
- 
-
 }
 if (!isset($_SESSION['role'])) {
   echo "<script>alert('Please log in!'); location.href='index.php';</script>";
-}       
+}
 
 
-    
+
 
 ?>
 
@@ -59,7 +55,7 @@ if (!isset($_SESSION['role'])) {
 
     <?php while ($row = $stm->fetch()) { ?>
       <div class="post-wrapper">
-      <div class="post">
+        <div class="post">
           <p class="category-tag"> <?php echo $row['category']; ?> </p>
           <img src="<?php echo $row['image'] ?>  " alt="" class="slider-image">
           <div class="post-info">
@@ -77,67 +73,72 @@ if (!isset($_SESSION['role'])) {
 
 
           </div>
-          
-          
+
+
           <h5 class="comments-title"> Comments</h5>
+
           <?php
           $post_id = $row['id'];
 
           $sql = "SELECT * FROM comments WHERE post_id=$post_id";
           $stmt = $pdo->prepare($sql);
           $stmt->execute();
-          
+
           while ($comments = $stmt->fetch()) { ?>
             <div class="comment-edit">
-            <i class="fas fa-comments"></i>
-            <p> <?php echo $comments['comment'] ?> </p>
-            <a href="app/controllers/handleDeleteComments.php?del=<?php echo $comments['id']; ?>">Delete comment</a>
+              <i class="fas fa-comments"></i>
+              <p> <?php echo $comments['comment'] ?> </p>
+              <a href="app/controllers/handleDeleteComments.php?del=<?php echo $comments['id']; ?>">Delete comment</a>
             </div>
-        
-          </div>
 
-        <?php } ?>
+
+
+          <?php } ?>
+
         </div>
-        <?php } ?>
-          
-      
+
+      <?php } ?>
+      </div>
 
 
-  
+
+
+
 
   </section>
 
   <section class="add_post_section">
 
-     <div class="single-wrapper">
-      
+    <div class="single-wrapper">
+
       <div class="single">
-      <h2>Add new post</h2>
+        <h2>Add new post</h2>
         <form action="handlepost.php" method="post" enctype="multipart/form-data">
-          
-            <h3><label>Title</label></h3>
-            <input type="text" name="title" class="text-input">
-            <h3><label for="categories">Choose your category</label><h3>
-            <select name="categories"  class="text-input">
-              <option value="Sunglasses">Sunglasses</option>
-              <option value="Watches">Watches</option>
-              <option value="Jewelery">Jewelery</option>
-              <option value="Interior">Interior</option>
-              <option value="Clothes">Clothes</option>
-            </select>
-            <div>
+
+          <h3><label>Title</label></h3>
+          <input type="text" name="title" class="text-input">
+          <h3><label for="categories">Choose your category</label>
+            <h3>
+              <select name="categories" class="text-input">
+                <option value="Sunglasses">Sunglasses</option>
+                <option value="Watches">Watches</option>
+                <option value="Jewelery">Jewelery</option>
+                <option value="Interior">Interior</option>
+                <option value="Clothes">Clothes</option>
+              </select>
               <div>
-            <h3><label>Your text</label></h3>
-              <textarea name="body" id="body" rows="20" cols="40" class="text-input"></textarea>
-          </div>
-          <div>
-            <h3><label>Image</label></h3>
-            
-            <input type="file" name="imageToUpload" class="btn">
-         </div>
-          <div>
-          <button type="submit" name="add-post" class="btn btn-big"> Add Post</button>
-          </div>
+                <div>
+                  <h3><label>Your text</label></h3>
+                  <textarea name="body" id="body" rows="20" cols="40" class="text-input"></textarea>
+                </div>
+                <div>
+                  <h3><label>Image</label></h3>
+
+                  <input type="file" name="imageToUpload" class="btn">
+                </div>
+                <div>
+                  <button type="submit" name="add-post" class="btn btn-big"> Add Post</button>
+                </div>
 
         </form>
       </div>

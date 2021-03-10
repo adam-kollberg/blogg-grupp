@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
 
 <div class="single-wrapper">
         <div class="single">
-        <img src="<?php echo BASE_URL . "/". $result['image']?>" alt="" width="500" height="500">
+        <img src="<?php echo  $result['image']?>" alt="" width="500" height="500">
         <h1 class="post-title"><?php echo $result['title']; ?></h1>
 
           <div class="post-content">

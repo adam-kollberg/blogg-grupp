@@ -62,7 +62,7 @@ if(move_uploaded_file($_FILES['image_upload']['tmp_name'], $target_file)){
 $sql = "UPDATE posts SET image=:img WHERE id=:id";
 $stm = $pdo->prepare($sql);
 
- $fileImg = "/blogg/app/uploads/" . $_FILES['image_upload']['name'];
+ $fileImg = "app/uploads/" . $_FILES['image_upload']['name'];
 $stm->bindParam(":img", $fileImg);
 $stm->bindParam(":id", $id);
 
@@ -83,8 +83,7 @@ if ($stm->execute($data)) {
 
 }
 
-
-    ?>
+?>
 
 
 
